@@ -1,3 +1,20 @@
+# CAPE-Contract v0.6 — Counterexample-guided evidence contract synthesis
+
+**Executed CPU research prototype, 2026-11-24.** No official PALE task approval or paper author claim. Full chain: CAPE-Graph → Plan → Adapt → Robust → Mix → Contract.
+
+## New in v0.6
+
+`capegraph/contracts.py` synthesizes a minimum-cost **positive proof-obligation conjunction** from task-owner-approved evidence atoms and labeled development traces. A finite CEGIS loop refines the rule with negative counterexamples; the exact weighted hitting-set solver has an independently coded exhaustive reference. The output includes a certificate identifying which obligation each negative fails and a reproducible canonical digest. If available evidence cannot separate two different outcomes, it returns `UNIDENTIFIABLE`; missing proof returns `UNVERIFIED`, not invented `FAIL`.
+
+- **117/117 framework tests**, including 210 random weighted-hitting-set cases checked against independent full enumeration, plus **97/97 previous PALE-domain CPU regressions** = **214 separately counted unit tests**.
+- Three synthetic service domains: 18 valid / 60 invalid **development** examples; 405 valid / 450 invalid independent-seed **frozen synthetic** examples. Of 405 valid, 45 newly authorized issuer-migration cases are withheld under the old schema; 90 invalid traces with unauthorized committed effects are **falsely accepted by the evidence-only contract** even though they are blocked when composed with the separate full-effect verifier. These are deliberately constructed failure modes, not field reliability rates.
+- An engineered weighted-cover case shows exact minimum **2 rule atoms** vs **3 atoms** for our transparent greedy implementation. Known weighted hitting set and CEGIS are prior art, not uniquely novel algorithms.
+- Zero GPUs or paid APIs: `python -m unittest discover -s tests -v` and `python experiments/contract_benchmark.py` reproduce the artifacts.
+
+**Read:** [`docs/CAPE_CONTRACT_METHOD.md`](docs/CAPE_CONTRACT_METHOD.md) for formal definitions, conditional exactness proof, trust assumptions, counterexamples and falsifiable research roadmap.
+
+---
+
 # CAPE-Graph v0.5 — Proof-grounded adaptive evaluation and exact robust mixed policies
 
 **Research prototype, dated 2026-11-24** · Python 3.11+ standard library · CPU · zero paid APIs · author-side evidence for three unapproved PALE Task proposals.

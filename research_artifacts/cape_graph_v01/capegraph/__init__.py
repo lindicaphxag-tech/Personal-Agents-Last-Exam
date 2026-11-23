@@ -15,3 +15,7 @@ from .robust import Prior, RobustDecision, RobustPolicy, solve_robust
 
 from .mixed import MixSupport, MixedPolicy, solve_mixed
 __all__ += ["MixSupport", "MixedPolicy", "solve_mixed"]
+
+# CAPE-Contract v0.6: finite-pool CEGIS evidence obligations.
+from .contracts import Atom, Trace, Contract, Certificate, synthesize_contract, greedy_contract, independent_oracle, audit_frozen_split
+__all__ += ["Atom", "Trace", "Contract", "Certificate", "synthesize_contract", "greedy_contract", "independent_oracle", "audit_frozen_split"]

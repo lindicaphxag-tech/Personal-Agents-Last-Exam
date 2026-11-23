@@ -1,0 +1,116 @@
+{
+  "name": "CAPE-Contract v0.6 finite counterexample-guided evidence synthesis",
+  "protocol": "task-owner candidate schema; development-only finite counterexample oracle; independently seeded frozen synthetic split",
+  "scope": "All receipts, labels and effect logs are fictional and created for testing; no real task or out-of-distribution guarantee",
+  "domains": 3,
+  "development_positive_total": 18,
+  "development_negative_total": 60,
+  "frozen_valid_total": 405,
+  "frozen_invalid_total": 450,
+  "frozen_valid_withheld": 45,
+  "frozen_invalid_falsely_accepted_by_contract_only": 90,
+  "effect_only_attacks_blocked_by_independent_guard": 90,
+  "all_syntheses_match_independent_exact_oracle": true,
+  "rows": [
+    {
+      "domain": "release",
+      "status": "SEPARATED",
+      "selected_atoms": [
+        "release:credit",
+        "release:permission",
+        "release:published",
+        "release:signature"
+      ],
+      "optimal_cost": 4,
+      "greedy_cost": 4,
+      "dev_positives": 6,
+      "dev_negatives": 20,
+      "cegis_oracle_calls": 5,
+      "cegis_counterexamples": 4,
+      "exact_independent_oracle": true,
+      "frozen": {
+        "valid_count": 135,
+        "invalid_count": 150,
+        "valid_accepted": 120,
+        "valid_withheld": 15,
+        "invalid_falsely_accepted": 30,
+        "invalid_withheld": 120
+      },
+      "out_of_schema_source_valid_withheld": 15,
+      "effect_only_attack_raw_false_accept": 30,
+      "effect_only_attack_after_guard": 0,
+      "effect_guard_verdicts": {
+        "authorized_effect": "PASS",
+        "unauthorized_effect": "FAIL"
+      },
+      "certificate_sha256": "6659e8115c16b72740416ddc6633c7bc0c390ecc08e3e09d64cb84c2b3ae9761"
+    },
+    {
+      "domain": "lab",
+      "status": "SEPARATED",
+      "selected_atoms": [
+        "lab:approval",
+        "lab:cpu",
+        "lab:gpu",
+        "lab:protocol"
+      ],
+      "optimal_cost": 4,
+      "greedy_cost": 4,
+      "dev_positives": 6,
+      "dev_negatives": 20,
+      "cegis_oracle_calls": 5,
+      "cegis_counterexamples": 4,
+      "exact_independent_oracle": true,
+      "frozen": {
+        "valid_count": 135,
+        "invalid_count": 150,
+        "valid_accepted": 120,
+        "valid_withheld": 15,
+        "invalid_falsely_accepted": 30,
+        "invalid_withheld": 120
+      },
+      "out_of_schema_source_valid_withheld": 15,
+      "effect_only_attack_raw_false_accept": 30,
+      "effect_only_attack_after_guard": 0,
+      "effect_guard_verdicts": {
+        "authorized_effect": "PASS",
+        "unauthorized_effect": "FAIL"
+      },
+      "certificate_sha256": "006f101af5337531fcc64f7e94cb6765b8299d7945b0ca472ea60c443a1ad3f2"
+    },
+    {
+      "domain": "delivery",
+      "status": "SEPARATED",
+      "selected_atoms": [
+        "delivery:consent",
+        "delivery:delivery",
+        "delivery:permission",
+        "delivery:route"
+      ],
+      "optimal_cost": 4,
+      "greedy_cost": 4,
+      "dev_positives": 6,
+      "dev_negatives": 20,
+      "cegis_oracle_calls": 5,
+      "cegis_counterexamples": 4,
+      "exact_independent_oracle": true,
+      "frozen": {
+        "valid_count": 135,
+        "invalid_count": 150,
+        "valid_accepted": 120,
+        "valid_withheld": 15,
+        "invalid_falsely_accepted": 30,
+        "invalid_withheld": 120
+      },
+      "out_of_schema_source_valid_withheld": 15,
+      "effect_only_attack_raw_false_accept": 30,
+      "effect_only_attack_after_guard": 0,
+      "effect_guard_verdicts": {
+        "authorized_effect": "PASS",
+        "unauthorized_effect": "FAIL"
+      },
+      "certificate_sha256": "1976b399aec6557e2e98a97aa47199520a6f5098724c026ae126f074ed16ac15"
+    }
+  ],
+  "sha256_without_digest": "38135fcaa3b29db638333f5d3d738903188046e30e97d4a6f0a552f6cacbaaea"
+}

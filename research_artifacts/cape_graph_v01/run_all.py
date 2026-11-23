@@ -20,9 +20,10 @@ if __name__=='__main__':
     execute('experiments/adaptive_benchmark.py')
     execute('experiments/robust_benchmark.py')
     execute('experiments/mixed_benchmark.py')
+    execute('experiments/contract_benchmark.py')
     prior=ROOT/'prior_97'/'verify_all.py'
     if prior.exists():
         execute('verify_all.py',cwd=ROOT/'prior_97')
-        print('COMPLETED: 105 framework tests + 97 separate prior domain tests; 42 deterministic mutations')
+        print('COMPLETED: 117 framework tests + 97 separate prior domain tests; 42 deterministic mutations')
     else:
-        print('COMPLETED: 105 framework tests, 42 mutations, 363 deterministic query cases, and 243 adaptive Bayesian cases. Prior 97-suite not bundled in this checkout.')
+        print('COMPLETED: 117 framework tests, 42 mutations, 363 deterministic query cases, and 243 adaptive Bayesian cases. Prior 97-suite not bundled in this checkout.')
