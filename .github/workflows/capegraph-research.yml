@@ -1,0 +1,33 @@
+name: CAPE-Graph research verification
+
+on:
+  push:
+    branches:
+      - research/cape-graph-v01-20261124
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-research.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Framework unit tests
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -v -s tests
+      - name: Synthetic falsification and counterfactual experiment
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/ablation.py
