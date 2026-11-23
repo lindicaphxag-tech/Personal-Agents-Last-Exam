@@ -1,0 +1,59 @@
+name: CAPE-Robust v0.4 reproducibility and independent oracle
+
+on:
+  push:
+    branches:
+      - research/cape-robust-v04-20261124
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-robust-v04.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-robust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run 96 independent framework unit tests
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -v -s tests
+      - name: Replay 42 malicious effect/trace mutations
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/ablation.py
+      - name: Replay static evidence planner with 363 exact search cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/planner_benchmark.py
+      - name: Replay single-prior adaptive planner with 243 exact oracle cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/adaptive_benchmark.py
+      - name: Replay robust globally coupled prior planning with 184 exact oracle cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/robust_benchmark.py
+      - name: Enforce frozen cross-experiment results
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('experiments/robust_results.json').read_text())
+          assert x['sha256_without_digest']=='04f238caf8df9740ba51ef72ed9be7e9b3ec5cd0171f50586a73d56d6c7c9b1b'
+          assert x['random_cases']==180 and x['engineered_cases']==4
+          assert x['independent_oracle_agreement']==184
+          assert x['robust_strictly_beats_nominal_under_shift']==1
+          assert x['robust_strictly_beats_fixed_minimax']==12
+          assert x['out_of_set_shift_nominal_better']==1
+          assert all(row['independent_oracle_agreement'] for row in x['rows'])
+          PY
+      - name: Confirm machine-readable records reproduce byte for byte
+        run: git diff --exit-code -- research_artifacts/cape_graph_v01/experiments
