@@ -30,6 +30,7 @@ class Rule:
     allowed: frozenset[str]
     unique: bool = True
     scope_bound: frozenset[str] = frozenset()
+    required_ancestry: tuple[tuple[str, str], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -271,6 +272,32 @@ class Verifier:
                     fault("duplicate_idempotency", "repeated committed side effect, not an idempotent read")
                 else:
                     used_idempotency[idem_key] = event["id"]
+
+            # Relational proof binding: two separately authentic facts do not
+            # automatically belong to the same operation. Require declared
+            # descendant -> ancestor links between outcome witnesses. These
+            # are provenance dependencies, NOT statistical causation.
+            if rule is not None:
+                for child_pred, ancestor_pred in rule.required_ancestry:
+                    child_claim = claim_map.get(child_pred)
+                    ancestor_claim = claim_map.get(ancestor_pred)
+                    if child_claim is None or ancestor_claim is None:
+                        continue  # Missing required claims already get UNVERIFIED.
+                    child_id, ancestor_id = child_claim["witness"], ancestor_claim["witness"]
+                    if child_id not in nodes or ancestor_id not in nodes:
+                        continue  # Missing witnesses already get UNVERIFIED.
+                    reachable = set()
+                    stack = list(nodes[child_id].get("parents", []))
+                    while stack:
+                        parent_id = stack.pop()
+                        if parent_id in reachable:
+                            continue
+                        reachable.add(parent_id)
+                        stack.extend(nodes[parent_id].get("parents", []))
+                    if ancestor_id not in reachable:
+                        fault("unbound_cross_service_proof",
+                              f"{child_pred} witness not causally dependent on {ancestor_pred}",
+                              evidence=(child_id, ancestor_id))
 
             for c in claims:
                 if rule is not None and c["predicate"] in rule.scope_bound and c["subject"] != event["scope"]:

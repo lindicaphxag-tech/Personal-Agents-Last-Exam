@@ -1,0 +1,43 @@
+name: CAPE-Graph v0.2 research regression
+
+on:
+  push:
+    branches: [research/cape-graph-v02-20261124]
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-v02.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  complete-research-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: All framework tests
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -v -s tests
+      - name: Original synthetic 42-case mutation matrix
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/ablation.py
+      - name: Domain-held-out CECS and PCR
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/cecs_pcr.py
+      - name: Initially withheld causal attack and metamorphic controls
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/frontier_evaluation.py
+      - name: Toy tabular policy learning comparison
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/toy_policy_learning.py
+      - name: Frozen results reproducibility
+        run: git diff --exit-code -- research_artifacts/cape_graph_v01/experiments/

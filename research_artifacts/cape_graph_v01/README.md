@@ -1,4 +1,4 @@
-# CAPE-Graph v0.1 — Causal, Authority-aware, Provenance-grounded Evidence Graph
+# CAPE-Graph v0.2 — Causal, Authority-aware, Provenance-grounded Evidence Graph
 
 **Research prototype, dated 2026-11-24** · Python 3.11+ standard library · CPU · zero paid APIs · author-side evidence for three unapproved PALE Task proposals.
 
@@ -14,7 +14,21 @@ python -m capegraph --case notice_restrictive
 python -m capegraph --case notice_permissive
 ```
 
-**Current local result:** 59/59 framework unit tests. Three synthetic positive references PASS; 42 deliberately invalid cases are not accepted (36 `FAIL`, 6 `UNVERIFIED`). A transparent weak *outcome-only* baseline accepts 36/42 invalid examples. The baseline is **our own toy ablation**, not another published system. The same world facts with only the earlier public-notice authorization changed flip `FAIL` -> `PASS`. These are author-side deterministic experiments—not model-agent rollouts, generalizable reliability estimates, PALE merge, or authorship confirmation.
+**Current local result:** 100/100 framework unit tests, plus 97/97 separate earlier task-pilot tests. Three synthetic positive references PASS; 42 deliberately invalid cases are not accepted (36 `FAIL`, 6 `UNVERIFIED`). A transparent weak *outcome-only* baseline accepts 36/42 invalid examples. The baseline is **our own toy ablation**, not another published system. The same world facts with only the earlier public-notice authorization changed flip `FAIL` -> `PASS`. These are author-side deterministic experiments—not model-agent rollouts, generalizable reliability estimates, PALE merge, or authorship confirmation.
+
+### 2027/2028 algorithm prototypes implemented in v0.2
+
+- **CECS:** finite-grammar, counterexample-guided selection of inexpensive audit guards. The screen only flags or defers; all positive certificates still require the full verifier. One newly introduced causal-connection counterexample automatically selects a relational guard and transfers to two other synthetic task domains.
+- **Relational evidence binding:** a `Rule.required_ancestry` condition ensures that a signer, job receipt or delivery receipt is causally dependent on the correct release, frozen protocol or consent/route evidence. Merely assembling individually valid records from unrelated workflows is insufficient.
+- **PCR:** version-pinned, replay-verified outcome reward with a telescoping positive-progress identity and **negative clawback** for later invalidation.
+- **Controlled learning demonstration:** a deliberately reward-hackable, single-step synthetic contextual bandit; 30/30 legitimate action choices with PCR versus 0/30 with naive apparent-success reward (3 domains × 10 seeds). These are not LLM/RL deployment findings.
+- **Reproducibility:** 100 framework tests, 97 separate existing task-pilot tests, 42 original attack mutations, an initially withheld causal-disconnection class, and 60 positive identity-remapping controls. See [`docs/METHOD_PAPER_DRAFT.md`](docs/METHOD_PAPER_DRAFT.md) for exact methods and limits.
+
+```bash
+python run_all.py
+python experiments/frontier_evaluation.py
+python experiments/toy_policy_learning.py
+```
 
 ### What's inside
 
@@ -23,8 +37,11 @@ python -m capegraph --case notice_permissive
 | `capegraph/core.py` | DAG provenance, issuer whitelist, time-bound permissions, revocations, stale/contradictory facts, complete effect audits, three-valued verdicts and proof-linked fingerprints |
 | `capegraph/ingest.py` | Accept only pre-authorized *verifier-controlled* service channels; issuer identity is assigned by the controlled channel, not copied from an agent's JSON |
 | `capegraph/scoring.py` | Independent positive outcome evidence; no-op receives 0 points even when the safety audit finds no violation |
+| `capegraph/cecs.py` | Counterexample-guided, cost-aware finite grammar for conservative audit triage |
+| `capegraph/proof_reward.py` | Verifier-gated, independently replayable proof reward and clawback |
+| `capegraph/metamorphic.py` | Deterministic identity/context alpha-renaming and event permutation controls |
 | `capegraph/fixtures.py` | Synthetic release/credit, scientific CPU protocol and step-free item dispatch; includes a prior-history authorization counterfactual |
-| `tests/` | 59 deterministic CPU tests including tampering, no-op, false GPU claims, provenance spoofing, missing evidence and a 3,000-node DAG test |
+| `tests/` | 100 deterministic CPU tests including tampering, no-op, false GPU claims, provenance spoofing, missing evidence and a 3,000-node DAG test |
 | `experiments/ablation.py` | 42 controlled mutated examples and a transparent outcome-only reference baseline |
 | `docs/` | Research methods, trust boundaries, PALE integration plan, 2026–2028 falsifiable research roadmap |
 

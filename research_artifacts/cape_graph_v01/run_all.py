@@ -16,9 +16,12 @@ def execute(*args,cwd=ROOT):
 if __name__=='__main__':
     execute('-m','unittest','discover','-v','-s','tests')
     execute('experiments/ablation.py')
+    execute('experiments/cecs_pcr.py')
+    execute('experiments/frontier_evaluation.py')
+    execute('experiments/toy_policy_learning.py')
     prior=ROOT/'prior_97'/'verify_all.py'
     if prior.exists():
         execute('verify_all.py',cwd=ROOT/'prior_97')
-        print('COMPLETED: 59 new framework tests + 97 separate prior domain tests; 42 deterministic mutations')
+        print('COMPLETED: 100 new framework tests + 97 separate prior domain tests; 42 original mutations + novel causal-family and 60-policy toy experiment')
     else:
-        print('COMPLETED: 59 new framework tests and 42 mutations. Prior 97-suite not bundled in this checkout.')
+        print('COMPLETED: 100 new framework tests, original 42 mutations, novel causal-family and 60-policy toy experiment. Prior 97-suite not bundled in this checkout.')

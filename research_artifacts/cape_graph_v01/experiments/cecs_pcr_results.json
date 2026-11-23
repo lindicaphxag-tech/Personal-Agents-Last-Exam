@@ -1,0 +1,616 @@
+{
+  "experiment": "Synthetic domain-held-out counterexample-guided screening; NO official PALE or learned-model results",
+  "positive_domains": 3,
+  "mutant_families_per_domain": 14,
+  "held_out_domain_trials": 42,
+  "flagged_without_full_proof": 42,
+  "escalated_to_full_verifier": 0,
+  "bad_traces_receiving_positive_proof_reward": 0,
+  "positive_references_receiving_full_proof_reward": 3,
+  "proof_reward_clawback_scenarios": 3,
+  "counterfactual_authorization": {
+    "restrictive": "FAIL",
+    "permissive": "PASS"
+  },
+  "folds": [
+    {
+      "held_out_domain": "delivery",
+      "selected_guards": [
+        "authorization",
+        "witness",
+        "outcome",
+        "uniqueness",
+        "freshness"
+      ],
+      "training": {
+        "covered": 28,
+        "total": 28,
+        "cost": 15,
+        "rounds": [
+          {
+            "round": 1,
+            "selected": "authorization",
+            "new_negatives": 10,
+            "cumulative_covered": 10,
+            "remaining": 18
+          },
+          {
+            "round": 2,
+            "selected": "witness",
+            "new_negatives": 12,
+            "cumulative_covered": 22,
+            "remaining": 6
+          },
+          {
+            "round": 3,
+            "selected": "outcome",
+            "new_negatives": 2,
+            "cumulative_covered": 24,
+            "remaining": 4
+          },
+          {
+            "round": 4,
+            "selected": "uniqueness",
+            "new_negatives": 2,
+            "cumulative_covered": 26,
+            "remaining": 2
+          },
+          {
+            "round": 5,
+            "selected": "freshness",
+            "new_negatives": 2,
+            "cumulative_covered": 28,
+            "remaining": 0
+          }
+        ]
+      },
+      "positive_remains_unflagged": true,
+      "screen_flagged": 14,
+      "deferred_to_full_verifier": 0,
+      "wrong_successes_after_full_verification": 0,
+      "rows": [
+        {
+          "attack": "extra_action",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "duplicate_effect",
+          "screen": "REJECT",
+          "fired": [
+            "uniqueness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "expired_grant",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "unauthorized_issuer",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "untrusted_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "extra_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_claim",
+          "screen": "REJECT",
+          "fired": [
+            "outcome"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "future_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "stale_witness",
+          "screen": "REJECT",
+          "fired": [
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_scope",
+          "screen": "REJECT",
+          "fired": [
+            "authorization",
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "revoke",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "false_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        }
+      ]
+    },
+    {
+      "held_out_domain": "lab",
+      "selected_guards": [
+        "witness",
+        "authorization",
+        "outcome",
+        "uniqueness",
+        "freshness"
+      ],
+      "training": {
+        "covered": 28,
+        "total": 28,
+        "cost": 15,
+        "rounds": [
+          {
+            "round": 1,
+            "selected": "witness",
+            "new_negatives": 14,
+            "cumulative_covered": 14,
+            "remaining": 14
+          },
+          {
+            "round": 2,
+            "selected": "authorization",
+            "new_negatives": 8,
+            "cumulative_covered": 22,
+            "remaining": 6
+          },
+          {
+            "round": 3,
+            "selected": "outcome",
+            "new_negatives": 2,
+            "cumulative_covered": 24,
+            "remaining": 4
+          },
+          {
+            "round": 4,
+            "selected": "uniqueness",
+            "new_negatives": 2,
+            "cumulative_covered": 26,
+            "remaining": 2
+          },
+          {
+            "round": 5,
+            "selected": "freshness",
+            "new_negatives": 2,
+            "cumulative_covered": 28,
+            "remaining": 0
+          }
+        ]
+      },
+      "positive_remains_unflagged": true,
+      "screen_flagged": 14,
+      "deferred_to_full_verifier": 0,
+      "wrong_successes_after_full_verification": 0,
+      "rows": [
+        {
+          "attack": "extra_action",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "duplicate_effect",
+          "screen": "REJECT",
+          "fired": [
+            "uniqueness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "expired_grant",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "unauthorized_issuer",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "untrusted_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "extra_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_claim",
+          "screen": "REJECT",
+          "fired": [
+            "outcome"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "future_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "stale_witness",
+          "screen": "REJECT",
+          "fired": [
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_scope",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "revoke",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "false_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        }
+      ]
+    },
+    {
+      "held_out_domain": "release",
+      "selected_guards": [
+        "authorization",
+        "witness",
+        "outcome",
+        "uniqueness",
+        "freshness"
+      ],
+      "training": {
+        "covered": 28,
+        "total": 28,
+        "cost": 15,
+        "rounds": [
+          {
+            "round": 1,
+            "selected": "authorization",
+            "new_negatives": 10,
+            "cumulative_covered": 10,
+            "remaining": 18
+          },
+          {
+            "round": 2,
+            "selected": "witness",
+            "new_negatives": 12,
+            "cumulative_covered": 22,
+            "remaining": 6
+          },
+          {
+            "round": 3,
+            "selected": "outcome",
+            "new_negatives": 2,
+            "cumulative_covered": 24,
+            "remaining": 4
+          },
+          {
+            "round": 4,
+            "selected": "uniqueness",
+            "new_negatives": 2,
+            "cumulative_covered": 26,
+            "remaining": 2
+          },
+          {
+            "round": 5,
+            "selected": "freshness",
+            "new_negatives": 2,
+            "cumulative_covered": 28,
+            "remaining": 0
+          }
+        ]
+      },
+      "positive_remains_unflagged": true,
+      "screen_flagged": 14,
+      "deferred_to_full_verifier": 0,
+      "wrong_successes_after_full_verification": 0,
+      "rows": [
+        {
+          "attack": "extra_action",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "duplicate_effect",
+          "screen": "REJECT",
+          "fired": [
+            "uniqueness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "expired_grant",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "unauthorized_issuer",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "untrusted_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_proof",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "extra_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_claim",
+          "screen": "REJECT",
+          "fired": [
+            "outcome"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "missing_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "freshness"
+          ],
+          "oracle": "UNVERIFIED",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "future_witness",
+          "screen": "REJECT",
+          "fired": [
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "stale_witness",
+          "screen": "REJECT",
+          "fired": [
+            "freshness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "wrong_scope",
+          "screen": "REJECT",
+          "fired": [
+            "authorization",
+            "witness"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "revoke",
+          "screen": "REJECT",
+          "fired": [
+            "authorization"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        },
+        {
+          "attack": "false_claim",
+          "screen": "REJECT",
+          "fired": [
+            "witness",
+            "outcome"
+          ],
+          "oracle": "FAIL",
+          "proof_reward": 0.0
+        }
+      ]
+    }
+  ],
+  "reward_examples": {
+    "release": {
+      "positive_final_reward": 1.0,
+      "final_reward_after_unauthorized_effect": 0.0,
+      "prefix_deltas": [
+        0.0,
+        1.0,
+        -1.0
+      ],
+      "replay_verified": true
+    },
+    "lab": {
+      "positive_final_reward": 1.0,
+      "final_reward_after_unauthorized_effect": 0.0,
+      "prefix_deltas": [
+        0.0,
+        1.0,
+        -1.0
+      ],
+      "replay_verified": true
+    },
+    "delivery": {
+      "positive_final_reward": 1.0,
+      "final_reward_after_unauthorized_effect": 0.0,
+      "prefix_deltas": [
+        0.0,
+        1.0,
+        -1.0
+      ],
+      "replay_verified": true
+    }
+  },
+  "sha256_without_digest": "e616ab4916b08ff7dc635ff16e7f30bd24ee87228cfbafd032f281bd34796d6f"
+}

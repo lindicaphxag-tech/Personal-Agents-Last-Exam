@@ -81,6 +81,7 @@
       "cape_verdict": "FAIL",
       "reason_codes": [
         "mismatched_witness",
+        "unbound_cross_service_proof",
         "untrusted_issuer"
       ]
     },
@@ -241,7 +242,8 @@
       "cape_verdict": "FAIL",
       "reason_codes": [
         "mismatched_witness",
-        "stale_witness"
+        "stale_witness",
+        "unbound_cross_service_proof"
       ]
     },
     {
@@ -400,6 +402,7 @@
       "cape_verdict": "FAIL",
       "reason_codes": [
         "mismatched_witness",
+        "unbound_cross_service_proof",
         "untrusted_issuer"
       ]
     },
@@ -496,5 +499,5 @@
       ]
     }
   ],
-  "sha256_without_digest": "760e28b3fbbab3e1dcbcd19b3b034e4e3b8f2d0273766aaf8f078c1d3338960d"
+  "sha256_without_digest": "020e19dece2f9c9ee43008ec968d0175737bfa5c024057c009e6fcf4d548056c"
 }

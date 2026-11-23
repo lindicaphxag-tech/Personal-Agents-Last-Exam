@@ -1,0 +1,993 @@
+{
+  "experiment": "synthetic one-step contextual bandit proof-of-concept (NOT RL SOTA)",
+  "domains": 3,
+  "seeds_per_domain": 10,
+  "episodes": 350,
+  "stats": {
+    "naive": {
+      "learned_policies": 30,
+      "verified_completions": 0,
+      "invalid_or_unfinished_policies": 30,
+      "by_action": {
+        "legitimate": 0,
+        "fabricated_witness": 18,
+        "duplicated_write": 12,
+        "noop": 0
+      }
+    },
+    "certificate": {
+      "learned_policies": 30,
+      "verified_completions": 30,
+      "invalid_or_unfinished_policies": 0,
+      "by_action": {
+        "legitimate": 30,
+        "fabricated_witness": 0,
+        "duplicated_write": 0,
+        "noop": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 24,
+        "fabricated_witness": 23,
+        "duplicated_write": 283,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 133,
+        "fabricated_witness": 182,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 19,
+        "fabricated_witness": 15,
+        "duplicated_write": 300,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 287,
+        "duplicated_write": 18,
+        "noop": 19
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 164,
+        "fabricated_witness": 153,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 21,
+        "fabricated_witness": 22,
+        "duplicated_write": 290,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 151,
+        "fabricated_witness": 177,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 17,
+        "fabricated_witness": 294,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 14,
+        "fabricated_witness": 297,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "naive",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 19,
+        "duplicated_write": 287,
+        "noop": 18
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 289,
+        "fabricated_witness": 24,
+        "duplicated_write": 17,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 293,
+        "fabricated_witness": 22,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 302,
+        "fabricated_witness": 15,
+        "duplicated_write": 17,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 294,
+        "fabricated_witness": 18,
+        "duplicated_write": 18,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 297,
+        "fabricated_witness": 20,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 22,
+        "duplicated_write": 15,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 306,
+        "fabricated_witness": 22,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 288,
+        "fabricated_witness": 23,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 292,
+        "fabricated_witness": 19,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "delivery",
+      "reward_source": "certificate",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 20,
+        "duplicated_write": 16,
+        "noop": 18
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 24,
+        "fabricated_witness": 23,
+        "duplicated_write": 283,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 133,
+        "fabricated_witness": 182,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 19,
+        "fabricated_witness": 15,
+        "duplicated_write": 300,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 287,
+        "duplicated_write": 18,
+        "noop": 19
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 164,
+        "fabricated_witness": 153,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 21,
+        "fabricated_witness": 22,
+        "duplicated_write": 290,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 151,
+        "fabricated_witness": 177,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 17,
+        "fabricated_witness": 294,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 14,
+        "fabricated_witness": 297,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "naive",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 19,
+        "duplicated_write": 287,
+        "noop": 18
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 289,
+        "fabricated_witness": 24,
+        "duplicated_write": 17,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 293,
+        "fabricated_witness": 22,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 302,
+        "fabricated_witness": 15,
+        "duplicated_write": 17,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 294,
+        "fabricated_witness": 18,
+        "duplicated_write": 18,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 297,
+        "fabricated_witness": 20,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 22,
+        "duplicated_write": 15,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 306,
+        "fabricated_witness": 22,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 288,
+        "fabricated_witness": 23,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 292,
+        "fabricated_witness": 19,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "lab",
+      "reward_source": "certificate",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 20,
+        "duplicated_write": 16,
+        "noop": 18
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 24,
+        "fabricated_witness": 23,
+        "duplicated_write": 283,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 133,
+        "fabricated_witness": 182,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 19,
+        "fabricated_witness": 15,
+        "duplicated_write": 300,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 287,
+        "duplicated_write": 18,
+        "noop": 19
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 164,
+        "fabricated_witness": 153,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 21,
+        "fabricated_witness": 22,
+        "duplicated_write": 290,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 151,
+        "fabricated_witness": 177,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 17,
+        "fabricated_witness": 294,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "fabricated_witness",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "UNVERIFIED",
+      "visits": {
+        "legitimate": 14,
+        "fabricated_witness": 297,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "naive",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "duplicated_write",
+      "chosen_q": 1.0,
+      "achieved_full_task": false,
+      "oracle_verdict": "FAIL",
+      "visits": {
+        "legitimate": 26,
+        "fabricated_witness": 19,
+        "duplicated_write": 287,
+        "noop": 18
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 0,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 289,
+        "fabricated_witness": 24,
+        "duplicated_write": 17,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 1,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 293,
+        "fabricated_witness": 22,
+        "duplicated_write": 19,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 2,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 302,
+        "fabricated_witness": 15,
+        "duplicated_write": 17,
+        "noop": 16
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 3,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 294,
+        "fabricated_witness": 18,
+        "duplicated_write": 18,
+        "noop": 20
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 4,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 297,
+        "fabricated_witness": 20,
+        "duplicated_write": 20,
+        "noop": 13
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 5,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 22,
+        "duplicated_write": 15,
+        "noop": 17
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 6,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 306,
+        "fabricated_witness": 22,
+        "duplicated_write": 10,
+        "noop": 12
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 7,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 288,
+        "fabricated_witness": 23,
+        "duplicated_write": 18,
+        "noop": 21
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 8,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 292,
+        "fabricated_witness": 19,
+        "duplicated_write": 16,
+        "noop": 23
+      }
+    },
+    {
+      "domain": "release",
+      "reward_source": "certificate",
+      "seed": 9,
+      "episodes": 350,
+      "chosen": "legitimate",
+      "chosen_q": 0.9,
+      "achieved_full_task": true,
+      "oracle_verdict": "PASS",
+      "visits": {
+        "legitimate": 296,
+        "fabricated_witness": 20,
+        "duplicated_write": 16,
+        "noop": 18
+      }
+    }
+  ],
+  "sha256_without_digest": "e306be6c41ba6b8ecb83627b0faea8dfef9a0aea2d29b3e1816b999b26306486"
+}

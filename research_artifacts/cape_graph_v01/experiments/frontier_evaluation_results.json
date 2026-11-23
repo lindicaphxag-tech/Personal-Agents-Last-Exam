@@ -1,0 +1,164 @@
+{
+  "title": "CAPE-Graph v0.2 controlled CECS+PCR experiment",
+  "scope": "Synthetic fixed tasks and programmer-authored attacks; not model trials or PALE accepted tasks",
+  "original_attack_families": 14,
+  "original_negative_cases": 42,
+  "initial_cecs": {
+    "selected": [
+      "witness",
+      "authorization",
+      "outcome",
+      "uniqueness",
+      "freshness"
+    ],
+    "rounds": [
+      {
+        "round": 1,
+        "selected": "witness",
+        "new_negatives": 20,
+        "cumulative_covered": 20,
+        "remaining": 22
+      },
+      {
+        "round": 2,
+        "selected": "authorization",
+        "new_negatives": 13,
+        "cumulative_covered": 33,
+        "remaining": 9
+      },
+      {
+        "round": 3,
+        "selected": "outcome",
+        "new_negatives": 3,
+        "cumulative_covered": 36,
+        "remaining": 6
+      },
+      {
+        "round": 4,
+        "selected": "uniqueness",
+        "new_negatives": 3,
+        "cumulative_covered": 39,
+        "remaining": 3
+      },
+      {
+        "round": 5,
+        "selected": "freshness",
+        "new_negatives": 3,
+        "cumulative_covered": 42,
+        "remaining": 0
+      }
+    ],
+    "train_negative_covered": 42,
+    "train_negative_total": 42,
+    "certified_positives": 3,
+    "cost": 15
+  },
+  "preheldout_novel_family": "detached_issuer_valid_causal_parent",
+  "novel_attack_before_refinement": {
+    "release": "DEFER",
+    "lab": "DEFER",
+    "delivery": "DEFER"
+  },
+  "novel_attack_after_one_refinement": {
+    "release": "REJECT",
+    "lab": "REJECT",
+    "delivery": "REJECT"
+  },
+  "after_refinement": {
+    "selected": [
+      "witness",
+      "authorization",
+      "outcome",
+      "uniqueness",
+      "freshness",
+      "relational"
+    ],
+    "rounds": [
+      {
+        "round": 1,
+        "selected": "witness",
+        "new_negatives": 20,
+        "cumulative_covered": 20,
+        "remaining": 23
+      },
+      {
+        "round": 2,
+        "selected": "authorization",
+        "new_negatives": 13,
+        "cumulative_covered": 33,
+        "remaining": 10
+      },
+      {
+        "round": 3,
+        "selected": "outcome",
+        "new_negatives": 3,
+        "cumulative_covered": 36,
+        "remaining": 7
+      },
+      {
+        "round": 4,
+        "selected": "uniqueness",
+        "new_negatives": 3,
+        "cumulative_covered": 39,
+        "remaining": 4
+      },
+      {
+        "round": 5,
+        "selected": "freshness",
+        "new_negatives": 3,
+        "cumulative_covered": 42,
+        "remaining": 1
+      },
+      {
+        "round": 6,
+        "selected": "relational",
+        "new_negatives": 1,
+        "cumulative_covered": 43,
+        "remaining": 0
+      }
+    ],
+    "train_negative_covered": 43,
+    "train_negative_total": 43,
+    "certified_positives": 3,
+    "cost": 20
+  },
+  "heldout_transfer_tasks": [
+    "release",
+    "delivery"
+  ],
+  "positive_alpha_renaming_count": 60,
+  "oracle_positive_survival": 60,
+  "screen_positive_false_rejections": 0,
+  "proof_reward_examples": [
+    {
+      "task": "release",
+      "positive": 1.0,
+      "illegal_late_effect": 0.0,
+      "clawback": -1.0,
+      "missing_service_proof": 0.0,
+      "noop": 0.0,
+      "certificate_replays": true
+    },
+    {
+      "task": "lab",
+      "positive": 1.0,
+      "illegal_late_effect": 0.0,
+      "clawback": -1.0,
+      "missing_service_proof": 0.0,
+      "noop": 0.0,
+      "certificate_replays": true
+    },
+    {
+      "task": "delivery",
+      "positive": 1.0,
+      "illegal_late_effect": 0.0,
+      "clawback": -1.0,
+      "missing_service_proof": 0.0,
+      "noop": 0.0,
+      "certificate_replays": true
+    }
+  ],
+  "outcome_only_baseline_false_accepts": 36,
+  "full_verifier_false_accepts": 0,
+  "sha256_without_digest": "5d17f2928c7507b03ff4dc87b95cab31676e6a4defdcbea07b51942b0fc6c1a6"
+}
