@@ -19,3 +19,7 @@ __all__ += ["MixSupport", "MixedPolicy", "solve_mixed"]
 # CAPE-Contract v0.6: finite-pool CEGIS evidence obligations.
 from .contracts import Atom, Trace, Contract, Certificate, synthesize_contract, greedy_contract, independent_oracle, audit_frozen_split
 __all__ += ["Atom", "Trace", "Contract", "Certificate", "synthesize_contract", "greedy_contract", "independent_oracle", "audit_frozen_split"]
+
+# v0.7: certified multi-prior pricing, sparse realization-flow and read-only execution.
+from .certified import EvidenceDAG, CertifiedMix, FlowCertificate, Execution, solve_certified, solve_flow, verify_certificate, verify_flow, execute_flow
+__all__ += ['EvidenceDAG','CertifiedMix','FlowCertificate','Execution','solve_certified','solve_flow','verify_certificate','verify_flow','execute_flow']

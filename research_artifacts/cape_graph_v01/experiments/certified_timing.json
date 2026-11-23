@@ -1,0 +1,30 @@
+{
+  "scope": "one constructed 24-world case; warm-up excluded, seven alternating end-to-end solves, includes DAG and exact certificate calculation, not external verification rerun",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "raw_seconds": {
+    "column": [
+      0.8975689310000234,
+      0.8859495850001622,
+      0.9383534880007574,
+      1.0677164959997754,
+      1.137400226999489,
+      1.0762013199991998,
+      0.8963574189992869
+    ],
+    "flow": [
+      0.022006700999554596,
+      0.020771436999893922,
+      0.025338041000395606,
+      0.021975607000058517,
+      0.023313466000217886,
+      0.02131887599989568,
+      0.02137164999930974
+    ]
+  },
+  "median_seconds": {
+    "column": 0.9383534880007574,
+    "flow": 0.021975607000058517
+  },
+  "speed_ratio": 42.69977561931548
+}
