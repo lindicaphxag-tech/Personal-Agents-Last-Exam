@@ -93,3 +93,18 @@ PALE upstream PRs [#109](https://github.com/MatrAIx-ai/Personal-Agents-Last-Exam
 - *Agentic Execution Assurance* (2026): observation-bounded three-valued assurance and trust/evidence semantics, [public paper](https://saridakisstamatischristos.github.io/publications/agentic-execution-assurance/agentic-execution-assurance.pdf).
 
 **Research hypothesis, not yet a verified novelty claim:** combining current-event evidence, history-scoped authorization, complete effect enumeration, explicit positive scoring and counterfactual interventions may reduce oracle false-acceptance while retaining valid alternative workflows. Deterministic synthetic controls establish implementation correctness, not external novelty or transfer.
+
+
+## CAPE-Robust v0.4 — prior-shift-aware verification (2026-11-24)
+
+`capegraph/robust.py` adds **globally coupled finite-prior max-min planning** of read-only proof queries. It never uses the latent world label during execution and never switches the adversarial prior independently after each observation. The solver is exact for **deterministic policies** in a bounded finite model, using componentwise Pareto pruning of world-by-world reward/cost vectors. Mixed strategies and large-state robust POMDPs are not solved.
+
+```bash
+python -m unittest discover -s tests -v
+python experiments/robust_benchmark.py
+python run_all.py
+```
+
+New verified output: **96/96** framework tests (previous 81 plus 15 robust regression cases), prior separate **97/97**, 42 earlier falsification mutants, 363 static query cases, 243 finite-belief cases and **184/184** globally coupled prior cases compared against an independent decision-tree enumerator (180 frozen seeds + 4 deliberately designed). A strong shifted-prior counterexample gives robust worst-case expected proof reward **6** versus the nominal prior policy's **1**. The four-world coupled counterexample gives robust adaptive **4.5** versus globally robust fixed-plan **0.5**. On random seeds robust outperforms nominal in just **1/180** and equals it otherwise under the defined ambiguity set; on an additional out-of-set prior probe it can also lose. These synthetic outcomes do not establish generalized safety, an empirical SOTA advantage, or eligibility for authorship.
+
+For the objective, exactness theorem, realistic threat model, independent oracle and full raw results see [`docs/CAPE_ROBUST_METHOD.md`](docs/CAPE_ROBUST_METHOD.md) and [`experiments/robust_results.json`](experiments/robust_results.json).

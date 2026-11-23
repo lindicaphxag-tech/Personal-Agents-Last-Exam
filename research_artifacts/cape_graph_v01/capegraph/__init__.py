@@ -9,3 +9,6 @@ __all__ += ["Need", "Goal", "Witness", "Query", "Plan", "solve_exact", "greedy_m
 
 from .adaptive import Probe, World, Decision, AdaptivePolicy, solve_adaptive, evaluate_fixed
 __all__ += ["Probe", "World", "Decision", "AdaptivePolicy", "solve_adaptive", "evaluate_fixed"]
+
+# Research-only exact robust optimizer (fixed prior ambiguity; deterministic policies).
+from .robust import Prior, RobustDecision, RobustPolicy, solve_robust
