@@ -1,30 +1,42 @@
-# CAPE-Graph v0.1 — Causal, Authority-aware, Provenance-grounded Evidence Graph
+# CAPE-Graph v0.2 — Causal, Authority-aware, Provenance-grounded Evidence Graph
 
 **Research prototype, dated 2026-11-24** · Python 3.11+ standard library · CPU · zero paid APIs · author-side evidence for three unapproved PALE Task proposals.
 
 **Goal:** Assess *all consequential committed actions* using time-indexed, issuer-bound evidence, scoped permissions and a separate positive-outcome rubric. A correct answer string or a signed agent-written trace is not evidence of a real service-side action.
+
+
+## New in v0.2 — CAPE-Plan (exact evidence acquisition)
+
+The new `capegraph/planner.py` implements **budgeted read-only evidence acquisition** for conjunctive outcome goals. It selects query subsets subject to costs, trusted issuer constraints, time windows, current-state conflict resolution and a hard budget. Exact branch-and-bound (up to 20 queries) is independently checked against an exhaustive subset oracle; a simple greedy-marginal baseline is reported separately. This is a new algorithm component of this research artifact, not evidence of publication-level novelty or a real-world SOTA result.
+
+- **71/71** CPU regression tests (59 original + 12 new planner tests).
+- **363/363** independent brute-force checks on three designed proof-conjunction cases and 360 fixed-seed synthetic query worlds.
+- Over 360 seeded synthetic worlds, exact planning outperforms the transparent greedy baseline on 24, ties on 336, and is worse on 0; summed verified-goal value is **3,670 vs 3,408**. These values cannot be generalized to real tasks or model agents.
+- `python experiments/planner_benchmark.py` reproduces all individual rows and their canonical digest. For semantics and limitations, see [`docs/CAPE_PLAN_METHOD.md`](docs/CAPE_PLAN_METHOD.md).
 
 ### Quick start
 
 ```bash
 python -m unittest discover -v -s tests
 python experiments/ablation.py
+python experiments/planner_benchmark.py
 python -m capegraph --case release --json
 python -m capegraph --case notice_restrictive
 python -m capegraph --case notice_permissive
 ```
 
-**Current local result:** 59/59 framework unit tests. Three synthetic positive references PASS; 42 deliberately invalid cases are not accepted (36 `FAIL`, 6 `UNVERIFIED`). A transparent weak *outcome-only* baseline accepts 36/42 invalid examples. The baseline is **our own toy ablation**, not another published system. The same world facts with only the earlier public-notice authorization changed flip `FAIL` -> `PASS`. These are author-side deterministic experiments—not model-agent rollouts, generalizable reliability estimates, PALE merge, or authorship confirmation.
+**Current local result:** 59/59 original framework unit tests (plus 12/12 new evidence-planner tests). Three synthetic positive references PASS; 42 deliberately invalid cases are not accepted (36 `FAIL`, 6 `UNVERIFIED`). A transparent weak *outcome-only* baseline accepts 36/42 invalid examples. The baseline is **our own toy ablation**, not another published system. The same world facts with only the earlier public-notice authorization changed flip `FAIL` -> `PASS`. These are author-side deterministic experiments—not model-agent rollouts, generalizable reliability estimates, PALE merge, or authorship confirmation.
 
 ### What's inside
 
 | Module | Purpose |
 | --- | --- |
 | `capegraph/core.py` | DAG provenance, issuer whitelist, time-bound permissions, revocations, stale/contradictory facts, complete effect audits, three-valued verdicts and proof-linked fingerprints |
+| `capegraph/planner.py` | Exact budgeted evidence acquisition with timestamped issuer claims and conjunctive proof goals |
 | `capegraph/ingest.py` | Accept only pre-authorized *verifier-controlled* service channels; issuer identity is assigned by the controlled channel, not copied from an agent's JSON |
 | `capegraph/scoring.py` | Independent positive outcome evidence; no-op receives 0 points even when the safety audit finds no violation |
 | `capegraph/fixtures.py` | Synthetic release/credit, scientific CPU protocol and step-free item dispatch; includes a prior-history authorization counterfactual |
-| `tests/` | 59 deterministic CPU tests including tampering, no-op, false GPU claims, provenance spoofing, missing evidence and a 3,000-node DAG test |
+| `tests/` | 71 deterministic CPU tests including tampering, no-op, false GPU claims, provenance spoofing, missing evidence and a 3,000-node DAG test |
 | `experiments/ablation.py` | 42 controlled mutated examples and a transparent outcome-only reference baseline |
 | `docs/` | Research methods, trust boundaries, PALE integration plan, 2026–2028 falsifiable research roadmap |
 
