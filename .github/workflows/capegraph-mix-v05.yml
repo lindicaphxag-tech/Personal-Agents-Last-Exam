@@ -1,0 +1,64 @@
+name: CAPE-Mix v0.5 exact private-randomness audit
+
+on:
+  push:
+    branches: [research/cape-mix-v05-20261124]
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-mix-v05.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mixed-exact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Independent numerical LP and older research regression dependencies
+        run: python -m pip install --disable-pip-version-check "numpy>=2" "scipy>=1.14"
+      - name: Test 105 typed verifier and robust planner contracts (100 independent LP games)
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -s tests -v
+      - name: Test previous 97 domain-specific task research contracts
+        working-directory: research_artifacts/cape_graph_v01/prior_97
+        run: python verify_all.py
+      - name: Regenerate malicious-trace and all exact planning experiments
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python experiments/ablation.py
+          python experiments/planner_benchmark.py
+          python experiments/adaptive_benchmark.py
+          python experiments/robust_benchmark.py
+      - name: Regenerate 421 exact primal/dual mixed-policy experiments
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/mixed_benchmark.py
+      - name: Frozen study assertions and direct committed-output comparison
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from capegraph.core import digest
+          summary=json.loads(Path('experiments/mixed_summary.json').read_text())
+          rows=[json.loads(x) for x in Path('experiments/mixed_results.jsonl').read_text().splitlines() if x]
+          assert len(rows)==420 and summary['exact_primal_dual_certificates_count']==421
+          assert summary['sha256_without_digest']=='023ef537fe8f69b337de1439d9fb3b002514da38e3c89f2a14192188c1783d35'
+          study={k:v for k,v in summary.items() if k!='sha256_without_digest'}
+          study['rows']=rows
+          assert digest(study)==summary['sha256_without_digest']
+          assert all(x['primal_dual_gap']=='0' for x in rows)
+          assert summary['unfiltered']['strict_mixed_gain']==3
+          assert summary['balanced_deliberately_conflicting']['strict_mixed_gain']==180
+          assert summary['coupled_two_stage']['mixed']=='9/2'
+          PY
+          git -C ../.. diff --exit-code -- research_artifacts/cape_graph_v01/experiments/mixed_summary.json research_artifacts/cape_graph_v01/experiments/mixed_results.jsonl
