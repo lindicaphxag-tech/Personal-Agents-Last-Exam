@@ -1,0 +1,53 @@
+name: CAPE-Adapt v0.3 finite-belief reproducibility
+
+on:
+  push:
+    branches:
+      - research/cape-adapt-v03-20261124
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-adapt-v03.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  belief-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run 81 deterministic CPU tests, including independent adaptive oracle
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -v -s tests
+      - name: Reproduce 42 malicious-trace controls
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/ablation.py
+      - name: Reproduce 363 exact static proof-query cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/planner_benchmark.py
+      - name: Reproduce 243 exact Bayesian adaptive and nonadaptive cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/adaptive_benchmark.py
+      - name: Frozen results and no-oracle-leak gate
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('experiments/adaptive_results.json').read_text())
+          assert x['independent_oracle_agreement']==243
+          assert x['random_cases']==240 and x['random_strict_adaptive_gain']==8
+          assert x['latent_world_identity_is_never_seen_by_policy'] is True
+          assert x['sha256_without_digest']=='a23d478985207b4022978f18ad4ef9de731cd95ce48e8b7c8a1e64c8728c4e0a'
+          y=json.loads(Path('experiments/planner_results.json').read_text())
+          assert y['sha256_without_digest']=='497336bc3ed546c0aa2501d91c5e4848af11ec9a34aa9ffe8286a3204d928114'
+          PY
