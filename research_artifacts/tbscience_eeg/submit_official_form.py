@@ -154,8 +154,8 @@ with sync_playwright() as p:
     for i,f in enumerate(fields):
         ta.nth(i).fill(DATA[f]);print("FILL",f,"OK")
     # Structured experience fields use plaintext contenteditable elements.
-    page.get_by_role("textbox",name="Relevant Experience").fill(DATA["Relevant Experience"])
-    page.get_by_role("textbox",name="Relevant Academic Work").fill(DATA["Relevant Academic Work"])
+    page.locator('[contenteditable="plaintext-only"][aria-label="Relevant Experience"]').fill(DATA["Relevant Experience"])
+    page.locator('[contenteditable="plaintext-only"]').nth(1).fill(DATA["Relevant Academic Work"])
     ta.nth(8).fill(DATA["Proposal Title"])
     ta.nth(9).fill(DATA["Subfield"])
     print("FILL_BASIC_OK")
@@ -179,8 +179,8 @@ with sync_playwright() as p:
     for i,f in enumerate(rich):
         editors.nth(i).fill(DATA[f])
         print("FILL_RICH",f,"OK")
-    page.get_by_role("textbox",name="COI").fill(DATA["COI"])
-    page.get_by_role("textbox",name="Is there anything else you'd like to share about yourself, your research or your task? (optional)").fill(DATA["Additional Info"])
+    page.locator('[contenteditable="plaintext-only"][aria-label="COI"]').fill(DATA["COI"])
+    page.locator('[contenteditable="plaintext-only"]').nth(2).fill(DATA["Additional Info"])
     invalid=page.locator('[aria-required="true"][aria-invalid="true"]')
     print("REQUIRED_INVALID_COUNT_BEFORE_SUBMIT",invalid.count())
     print("REQUIRED_INVALID_DETAILS",invalid.evaluate_all("els => els.map(x => ({tag:x.tagName,aria:x.getAttribute('aria-label'),label:x.getAttribute('aria-labelledby')}))"))
