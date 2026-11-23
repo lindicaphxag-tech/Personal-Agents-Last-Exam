@@ -1,0 +1,500 @@
+{
+  "label": "synthetic author-side deterministic negative controls (NOT model rollouts)",
+  "cases": [
+    "release",
+    "lab",
+    "delivery"
+  ],
+  "positive_references": 3,
+  "mutated_invalid_cases": 42,
+  "toy_outcome_only_false_accepts": 36,
+  "cape_false_accepts": 0,
+  "cape_fails": 36,
+  "cape_unverified": 6,
+  "counterfactual_authorization": {
+    "restrictive": "FAIL",
+    "permissive": "PASS"
+  },
+  "rows": [
+    {
+      "case": "release",
+      "attack": "extra_action",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time",
+        "unknown_effect"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "duplicate_effect",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "duplicate_irreversible_effect"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "expired_grant",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "unauthorized_issuer",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_grant"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "untrusted_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "wrong_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "mismatched_witness",
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "extra_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "extra_claim",
+        "mismatched_witness",
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "missing_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_required_claim"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "missing_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_witness"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "future_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "future_evidence"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "stale_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "stale_witness"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "wrong_scope",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time",
+        "wrong_subject_scope"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "revoke",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "revoked_permission"
+      ]
+    },
+    {
+      "case": "release",
+      "attack": "false_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "incorrect_required_claim",
+        "mismatched_witness"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "extra_action",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time",
+        "unknown_effect"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "duplicate_effect",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "duplicate_irreversible_effect"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "expired_grant",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "unauthorized_issuer",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_grant"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "untrusted_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "wrong_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "mismatched_witness",
+        "stale_witness"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "extra_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "extra_claim",
+        "mismatched_witness",
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "missing_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_required_claim"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "missing_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_witness"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "future_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "future_evidence"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "stale_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "stale_witness"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "wrong_scope",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "revoke",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "revoked_permission"
+      ]
+    },
+    {
+      "case": "lab",
+      "attack": "false_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "incorrect_required_claim",
+        "mismatched_witness"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "extra_action",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time",
+        "unknown_effect"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "duplicate_effect",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "duplicate_irreversible_effect"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "expired_grant",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "unauthorized_issuer",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_grant"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "untrusted_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "wrong_proof",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "mismatched_witness",
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "extra_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "extra_claim",
+        "mismatched_witness",
+        "untrusted_issuer"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "missing_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_required_claim"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "missing_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "UNVERIFIED",
+      "reason_codes": [
+        "missing_witness"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "future_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "future_evidence"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "stale_witness",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "stale_witness"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "wrong_scope",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "unauthorized_scope_time",
+        "wrong_subject_scope"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "revoke",
+      "ground_truth": "invalid",
+      "baseline_accepts": true,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "revoked_permission"
+      ]
+    },
+    {
+      "case": "delivery",
+      "attack": "false_claim",
+      "ground_truth": "invalid",
+      "baseline_accepts": false,
+      "cape_accepts": false,
+      "cape_verdict": "FAIL",
+      "reason_codes": [
+        "incorrect_required_claim",
+        "mismatched_witness"
+      ]
+    }
+  ],
+  "sha256_without_digest": "760e28b3fbbab3e1dcbcd19b3b034e4e3b8f2d0273766aaf8f078c1d3338960d"
+}
