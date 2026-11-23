@@ -1,0 +1,47 @@
+name: CAPE-Plan v0.2 reproducible scientific audit
+
+on:
+  push:
+    branches:
+      - research/cape-plan-v02-20261124
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-plan-research.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-planning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run 71 unit tests
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -s tests -v
+      - name: Reproduce 42 adversarial negative controls
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/ablation.py
+      - name: Independent exact oracle check on 363 evidence acquisition cases
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/planner_benchmark.py
+      - name: Check frozen synthetic result digest
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('experiments/planner_results.json').read_text())
+          assert d['sha256_without_digest']=='497336bc3ed546c0aa2501d91c5e4848af11ec9a34aa9ffe8286a3204d928114'
+          assert d['heldout_count']==360 and d['heldout_exact_strictly_better']==24
+          assert d['all_exact_agree_with_independent_bruteforce']
+          PY
