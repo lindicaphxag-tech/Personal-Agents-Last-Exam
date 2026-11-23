@@ -6,3 +6,6 @@ __all__ = ["Rule", "Finding", "Result", "Verifier", "digest", "minimize_witness"
 
 from .planner import Need, Goal, Witness, Query, Plan, solve_exact, greedy_marginal
 __all__ += ["Need", "Goal", "Witness", "Query", "Plan", "solve_exact", "greedy_marginal"]
+
+from .adaptive import Probe, World, Decision, AdaptivePolicy, solve_adaptive, evaluate_fixed
+__all__ += ["Probe", "World", "Decision", "AdaptivePolicy", "solve_adaptive", "evaluate_fixed"]
