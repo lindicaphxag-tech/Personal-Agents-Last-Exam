@@ -12,3 +12,6 @@ __all__ += ["Probe", "World", "Decision", "AdaptivePolicy", "solve_adaptive", "e
 
 # Research-only exact robust optimizer (fixed prior ambiguity; deterministic policies).
 from .robust import Prior, RobustDecision, RobustPolicy, solve_robust
+
+from .mixed import MixSupport, MixedPolicy, solve_mixed
+__all__ += ["MixSupport", "MixedPolicy", "solve_mixed"]

@@ -1,0 +1,43 @@
+{
+  "scope": "finite-world, two-fixed-prior, synthetic, globally coupled, private-coin max-min",
+  "seed_start": 2026112400,
+  "unfiltered": {
+    "n": 180,
+    "strict_mixed_gain": 3,
+    "equal": 177,
+    "cumulative_gain": "8727/560",
+    "mean_gain": "2909/33600"
+  },
+  "balanced_deliberately_conflicting": {
+    "n": 240,
+    "strict_mixed_gain": 180,
+    "equal": 60,
+    "cumulative_gain": "3102703489318633/6476280554016",
+    "mean_gain": "3102703489318633/1554307332963840"
+  },
+  "coupled_two_stage": {
+    "case": "constructed:nonrectangular-two-stage",
+    "budget": 3,
+    "worlds": 4,
+    "queries": 3,
+    "mixed": "9/2",
+    "deterministic": "9/2",
+    "gain": "0",
+    "strictly_better": false,
+    "support": [
+      {
+        "probability": "1",
+        "root_query": "which"
+      }
+    ],
+    "nature_dual_weights": [
+      "0",
+      "1"
+    ],
+    "primal_dual_gap": "0",
+    "frontier_size": 6
+  },
+  "exact_primal_dual_certificates_count": 421,
+  "no_actual_agent_or_service_traces": true,
+  "sha256_without_digest": "023ef537fe8f69b337de1439d9fb3b002514da38e3c89f2a14192188c1783d35"
+}

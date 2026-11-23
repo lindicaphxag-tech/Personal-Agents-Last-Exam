@@ -1,10 +1,22 @@
-# CAPE-Graph v0.3 — Causal, Authority-aware, Provenance-grounded Evidence Graph
+# CAPE-Graph v0.5 — Proof-grounded adaptive evaluation and exact robust mixed policies
 
 **Research prototype, dated 2026-11-24** · Python 3.11+ standard library · CPU · zero paid APIs · author-side evidence for three unapproved PALE Task proposals.
 
 **Goal:** Assess *all consequential committed actions* using time-indexed, issuer-bound evidence, scoped permissions and a separate positive-outcome rubric. A correct answer string or a signed agent-written trace is not evidence of a real service-side action.
 
 
+
+## New in v0.5 — CAPE-Mix, exact globally coupled two-prior randomization
+
+**Executed 2026-11-24 (CPU)**. `capegraph/mixed.py` corrects an important strategy-class limitation of v0.4: under two globally fixed possible prior distributions and a **private** pre-query random seed, randomly mixing two evidence-query decision trees can strictly increase worst-case verified task reward. The runtime solver uses exact-rational two-scenario minimax geometry with a separately verified primal/dual certificate; *the matrix-game mathematics is established prior art*, not presented as a new theorem. It preserves all earlier issuer, time, authorization and whole-goal evidence contracts.
+
+- **105 framework unit tests** plus **97 earlier domain-task regression tests**: **202 tests** (independent scopes).
+- **421/421 exact two-prior policy-value/primal–dual certificates**: 180 frozen unfiltered v0.4 scenarios, 240 *deliberately constructed* prior-conflict stress cases, one nonrectangular two-stage control.
+- Original 180: **3 strict randomized gains**, **177 ties**; 240 intentionally conflict-enriched: **180 gains, 60 ties**. The latter is *not a population frequency estimate*. No agent-model benchmark performance has been measured.
+- One clean witness: deterministic max-min reward **0**, private 50/50 policy **5**, while **seed-revealed** randomization returns the guarantee to **0**.
+- Optional independently implemented SciPy HiGHS reference validates 100 separate small games; **SciPy is used only in testing**, not the exact runtime solver.
+
+Read [`docs/CAPE_MIX_METHOD.md`](docs/CAPE_MIX_METHOD.md) for exact assumptions, proofs, costs, alternative strategies and 2027–28 research gaps; run `python experiments/mixed_benchmark.py` for all cases. Public CI checks reproducible source and output across Python 3.11–3.13.
 
 ## New in v0.3 — CAPE-Adapt, uncertainty-aware active checking
 
