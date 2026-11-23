@@ -1,0 +1,64 @@
+name: CAPE-Contract v0.6 exact CEGIS and frozen split audit
+
+on:
+  push:
+    branches: [research/cape-contract-v06-20261124]
+    paths:
+      - "research_artifacts/cape_graph_v01/**"
+      - ".github/workflows/capegraph-contract-v06.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Prepare reference solver used only in the prior mixed-strategy tests
+        run: python -m pip install --disable-pip-version-check "numpy>=2" "scipy>=1.14"
+      - name: All 117 CAPE framework tests including 210 independent CEGIS oracles
+        working-directory: research_artifacts/cape_graph_v01
+        run: python -m unittest discover -s tests -v
+      - name: Prior 97 PALE domain-specific research unit tests
+        working-directory: research_artifacts/cape_graph_v01/prior_97
+        run: python verify_all.py
+      - name: Reproduce all prior synthetic evaluations
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python experiments/ablation.py
+          python experiments/planner_benchmark.py
+          python experiments/adaptive_benchmark.py
+          python experiments/robust_benchmark.py
+          python experiments/mixed_benchmark.py
+      - name: Reproduce contract synthesis development/frozen evidence splits
+        working-directory: research_artifacts/cape_graph_v01
+        run: python experiments/contract_benchmark.py
+      - name: Independently check frozen aggregate, separate effect auditing and reference SHA256
+        working-directory: research_artifacts/cape_graph_v01
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from capegraph.core import digest
+          obj=json.loads(Path('experiments/contract_results.json').read_text())
+          assert obj['sha256_without_digest']=='38135fcaa3b29db638333f5d3d738903188046e30e97d4a6f0a552f6cacbaaea'
+          payload={k:v for k,v in obj.items() if k!='sha256_without_digest'}
+          assert digest(payload)==obj['sha256_without_digest']
+          assert obj['all_syntheses_match_independent_exact_oracle']
+          assert (obj['development_positive_total'],obj['development_negative_total'])==(18,60)
+          assert (obj['frozen_valid_total'],obj['frozen_invalid_total'])==(405,450)
+          assert (obj['frozen_valid_withheld'],obj['frozen_invalid_falsely_accepted_by_contract_only'])==(45,90)
+          assert obj['effect_only_attacks_blocked_by_independent_guard']==90
+          assert all(row['optimal_cost']==row['greedy_cost']==4 for row in obj['rows'])
+          PY
+          git -C ../.. diff --exit-code -- research_artifacts/cape_graph_v01/experiments/contract_results.json
