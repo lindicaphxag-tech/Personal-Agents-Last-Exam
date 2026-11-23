@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-23",
+  "files": {
+    "PALE_109_CPU_RESEARCH/protocol_gate.py": {
+      "bytes": 12676,
+      "git_blob_sha1": "7d5f476325b8ae33765aea90508e079d66461719",
+      "sha256": "03e4bae2020477ade53013e39df378b9799f9770660e7b189a7bf3a5565b8420"
+    },
+    "PALE_109_CPU_RESEARCH/test_claim_completeness.py": {
+      "bytes": 2555,
+      "git_blob_sha1": "50d07ed3209b94a0b110346d82b649d7273db386",
+      "sha256": "b9d00fabfdd5b4a57a05f120e0f7d64453f94176b5c5ec9358ca4d7a6e3d6e7d"
+    },
+    "PALE_109_CPU_RESEARCH/test_protocol_gate.py": {
+      "bytes": 5056,
+      "git_blob_sha1": "291de971e279b9260827b347ebf4bf06bf45084f",
+      "sha256": "ba7668a3c00537b0c55d55dd5982ed6d2dd5bd9587421b566b91b34e325a7703"
+    },
+    "PALE_109_CPU_RESEARCH/unittest_23_20261123.log": {
+      "bytes": 3011,
+      "git_blob_sha1": "5492aaa552a64195f87ab5b0a3b671dcf01c5443",
+      "sha256": "b64415cdecc533f4fbe3e661337714309f0e1f75e2e79522fd95b175ab5b95d3"
+    },
+    "PALE_110_ACCESSIBILITY/route_gate.py": {
+      "bytes": 12972,
+      "git_blob_sha1": "cd6b98e84503b8989ff8cbd8f59a84486b0faaa8",
+      "sha256": "7200694cfd0c100055615a3a86919a8cdd1c84ae3b8f42fba4c51a99ca0bb304"
+    },
+    "PALE_110_ACCESSIBILITY/test_event_completeness.py": {
+      "bytes": 2773,
+      "git_blob_sha1": "15e6c650e387f8217472c9530b339d01462b8ed2",
+      "sha256": "beb5a1cbc0c0082012ba519f7c9b55a39d8ff25db5f744715ab7f9f3da513fb7"
+    },
+    "PALE_110_ACCESSIBILITY/test_route_gate.py": {
+      "bytes": 3863,
+      "git_blob_sha1": "e1db08205edda73c98fa310ebd2dd384ebeb9b42",
+      "sha256": "5f2254f7199e14c43cd9bcf4ee51d30aaa0dbeea127668ded661d76068449795"
+    },
+    "PALE_110_ACCESSIBILITY/test_trusted_authority.py": {
+      "bytes": 2687,
+      "git_blob_sha1": "2df251f536967e07f260af74cb8a52a7d1b8a813",
+      "sha256": "07c57a96994d9bc860943ef7eb922794c4d6ea535f8a61e6be984633600b5c62"
+    },
+    "PALE_110_ACCESSIBILITY/unittest_33_20261123.log": {
+      "bytes": 4233,
+      "git_blob_sha1": "7841efea71b41facb4cc0722b6e29d577b56d99e",
+      "sha256": "f312359f9d079e0bfd4000f22b627530d243d04c75d3f0c5a44ee89bffce624a"
+    },
+    "PALE_119_RELEASE_ATTRIBUTION/release_gate.py": {
+      "bytes": 15255,
+      "git_blob_sha1": "f5e8b1ad819d2cc8a901f30e07845203bf976b89",
+      "sha256": "ea87e5d87d4abc4fb3fa25bcfff61a8b3241ce557df442f22814dd5f8c002b00"
+    },
+    "PALE_119_RELEASE_ATTRIBUTION/test_redteam_release.py": {
+      "bytes": 5585,
+      "git_blob_sha1": "a680dde0c605e2899f9ca3086abeec85aee29cb1",
+      "sha256": "3e0bc94068e373547ff41b7c31b3c764b2766511fa51a777c76fd48a0f45f8c9"
+    },
+    "PALE_119_RELEASE_ATTRIBUTION/test_release_gate.py": {
+      "bytes": 5455,
+      "git_blob_sha1": "a8629e511297d003b95ed6bac2fec379218e5565",
+      "sha256": "43b29a86efaaafac2220b21156a14f973778584b3593c86fb161d4e5c0ec9d9c"
+    },
+    "PALE_119_RELEASE_ATTRIBUTION/unittest_41_20261123.log": {
+      "bytes": 5646,
+      "git_blob_sha1": "ce5d68670093e80f7e0e1763fb47e876a29ad6ad",
+      "sha256": "346524e9f9f3a92af40e9f169eba56728528954b71aecae359815e2e8affd618"
+    }
+  },
+  "scope": "author-side offline preapproval research; not official PALE implementation or model evaluation",
+  "tests_expected": {
+    "PALE_109_CPU_RESEARCH": 23,
+    "PALE_110_ACCESSIBILITY": 33,
+    "PALE_119_RELEASE_ATTRIBUTION": 41
+  }
+}
