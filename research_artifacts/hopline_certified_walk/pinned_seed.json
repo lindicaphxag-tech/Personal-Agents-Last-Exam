@@ -1,0 +1,320 @@
+{
+  "account_id": "hopline-mina",
+  "owner_person_id": "person-mina",
+  "settings": {
+    "time_zone": "Asia/Singapore"
+  },
+  "rider": {
+    "name": "Mina",
+    "payment_methods": []
+  },
+  "stops": [
+    {
+      "stop_id": "st-cc",
+      "name": "Community Center",
+      "kind": "station",
+      "step_free": true,
+      "external_ref": null
+    },
+    {
+      "stop_id": "st-ep",
+      "name": "East Passage",
+      "kind": "station",
+      "step_free": false,
+      "external_ref": null
+    },
+    {
+      "stop_id": "st-rr",
+      "name": "Riverside Ramp",
+      "kind": "station",
+      "step_free": true,
+      "external_ref": null
+    },
+    {
+      "stop_id": "st-supply",
+      "name": "Supply Court",
+      "kind": "station",
+      "step_free": true,
+      "external_ref": null
+    },
+    {
+      "stop_id": "st-kit-a",
+      "name": "Reading Corner",
+      "kind": "station",
+      "step_free": true,
+      "external_ref": null
+    },
+    {
+      "stop_id": "st-rowan",
+      "name": "Rowan Court",
+      "kind": "station",
+      "step_free": true,
+      "external_ref": null
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "hill-cc",
+      "stop_id": "st-cc",
+      "kind": "entrance",
+      "name": "hill-cc"
+    },
+    {
+      "node_id": "canal-cc",
+      "stop_id": "st-cc",
+      "kind": "entrance",
+      "name": "canal-cc"
+    },
+    {
+      "node_id": "hill-ep",
+      "stop_id": "st-ep",
+      "kind": "entrance",
+      "name": "hill-ep"
+    },
+    {
+      "node_id": "canal-ep",
+      "stop_id": "st-ep",
+      "kind": "entrance",
+      "name": "canal-ep"
+    },
+    {
+      "node_id": "hill-rr",
+      "stop_id": "st-rr",
+      "kind": "entrance",
+      "name": "hill-rr"
+    },
+    {
+      "node_id": "canal-rr",
+      "stop_id": "st-rr",
+      "kind": "entrance",
+      "name": "canal-rr"
+    },
+    {
+      "node_id": "supply",
+      "stop_id": "st-supply",
+      "kind": "entrance",
+      "name": "supply"
+    },
+    {
+      "node_id": "kit-a",
+      "stop_id": "st-kit-a",
+      "kind": "entrance",
+      "name": "kit-a"
+    },
+    {
+      "node_id": "rowan",
+      "stop_id": "st-rowan",
+      "kind": "entrance",
+      "name": "rowan"
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "pw-cc-lift",
+      "from": "hill-cc",
+      "to": "canal-cc",
+      "mode": "elevator",
+      "seconds": 90,
+      "length_m": 10,
+      "bidirectional": true,
+      "facility_id": "fac-cc-lift"
+    },
+    {
+      "pathway_id": "pw-hill-cc-ep",
+      "from": "hill-cc",
+      "to": "hill-ep",
+      "mode": "walkway",
+      "seconds": 120,
+      "length_m": 150,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-ep-stairs",
+      "from": "hill-ep",
+      "to": "canal-ep",
+      "mode": "stairs",
+      "seconds": 60,
+      "length_m": 20,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-canal-ep-cc",
+      "from": "canal-ep",
+      "to": "canal-cc",
+      "mode": "walkway",
+      "seconds": 120,
+      "length_m": 150,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-hill-ep-rr",
+      "from": "hill-ep",
+      "to": "hill-rr",
+      "mode": "walkway",
+      "seconds": 120,
+      "length_m": 150,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-rr-ramp",
+      "from": "hill-rr",
+      "to": "canal-rr",
+      "mode": "ramp",
+      "seconds": 150,
+      "length_m": 120,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-canal-rr-ep",
+      "from": "canal-rr",
+      "to": "canal-ep",
+      "mode": "walkway",
+      "seconds": 120,
+      "length_m": 150,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-cc-supply",
+      "from": "canal-cc",
+      "to": "supply",
+      "mode": "walkway",
+      "seconds": 600,
+      "length_m": 480,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-hill-a",
+      "from": "hill-cc",
+      "to": "kit-a",
+      "mode": "walkway",
+      "seconds": 120,
+      "length_m": 150,
+      "bidirectional": true,
+      "facility_id": null
+    },
+    {
+      "pathway_id": "pw-rowan-supply",
+      "from": "rowan",
+      "to": "supply",
+      "mode": "walkway",
+      "seconds": 60,
+      "length_m": 75,
+      "bidirectional": true,
+      "facility_id": null
+    }
+  ],
+  "facilities": [
+    {
+      "facility_id": "fac-cc-lift",
+      "code": "CC-L1",
+      "kind": "elevator",
+      "stop_id": "st-cc",
+      "name": "Community Center lift",
+      "pathway_ids": [
+        "pw-cc-lift"
+      ],
+      "history": []
+    }
+  ],
+  "routes": [],
+  "patterns": [],
+  "places": [
+    {
+      "place_id": "pl-jules",
+      "name": "Jules Hill Road",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "hill-cc",
+          "seconds": 120,
+          "length_m": 150,
+          "step_free": true
+        }
+      ]
+    },
+    {
+      "place_id": "pl-rowan",
+      "name": "Rowan Court",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "rowan",
+          "seconds": 60,
+          "length_m": 75,
+          "step_free": true
+        }
+      ]
+    },
+    {
+      "place_id": "pl-recipient-a",
+      "name": "Reading Corner recipient A",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "kit-a",
+          "seconds": 120,
+          "length_m": 150,
+          "step_free": true
+        }
+      ]
+    },
+    {
+      "place_id": "pl-recipient-b",
+      "name": "Canal Walk recipient B",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "canal-cc",
+          "seconds": 120,
+          "length_m": 150,
+          "step_free": true
+        }
+      ]
+    },
+    {
+      "place_id": "pl-recipient-c",
+      "name": "Supply Court recipient C",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "supply",
+          "seconds": 120,
+          "length_m": 150,
+          "step_free": true
+        }
+      ]
+    },
+    {
+      "place_id": "pl-depot",
+      "name": "Reading Circle depot",
+      "kind": "address",
+      "access": [
+        {
+          "node_id": "hill-cc",
+          "seconds": 0,
+          "length_m": 0,
+          "step_free": true
+        }
+      ]
+    }
+  ],
+  "alerts": [],
+  "trip_updates": [],
+  "cards": [],
+  "ledger": [],
+  "taps": [],
+  "passes": [],
+  "applications": [],
+  "saved": [],
+  "subscriptions": [],
+  "notifications": [],
+  "ignored_events": [],
+  "redirects": []
+}

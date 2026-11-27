@@ -1,0 +1,110 @@
+{
+  "tests": [
+    "static distance tradeoff",
+    "later arrival enables facility",
+    "infeasible bound",
+    "resource exhaustion distinct",
+    "zero-hop",
+    "reject nonpositive duration",
+    "all differential cases exact",
+    "pruning never increased expanded labels in benchmark"
+  ],
+  "cases": 1200,
+  "feasible": 517,
+  "staticCases": 665,
+  "dynamicCases": 535,
+  "baseExpanded": 3167,
+  "newExpanded": 1556,
+  "bruteVisits": 7802,
+  "pruned": 1091,
+  "improved": 799,
+  "worse": 0,
+  "pinned": [
+    {
+      "budget": 349,
+      "status": "infeasible",
+      "expanded": 0,
+      "generated": 0,
+      "dominated": 0,
+      "boundPruned": 1,
+      "peak": 0,
+      "staticGraph": true
+    },
+    {
+      "budget": 350,
+      "status": "optimal",
+      "arrival": 870,
+      "distance": 350,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-hill-cc-ep:f",
+        "pw-hill-ep-rr:f",
+        "pw-rr-ramp:f",
+        "pw-canal-rr-ep:f",
+        "pw-canal-ep-cc:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "expanded": 8,
+      "generated": 8,
+      "dominated": 0,
+      "boundPruned": 8,
+      "peak": 1,
+      "staticGraph": true
+    },
+    {
+      "budget": 375,
+      "status": "optimal",
+      "arrival": 870,
+      "distance": 350,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-hill-cc-ep:f",
+        "pw-hill-ep-rr:f",
+        "pw-rr-ramp:f",
+        "pw-canal-rr-ep:f",
+        "pw-canal-ep-cc:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "expanded": 8,
+      "generated": 8,
+      "dominated": 5,
+      "boundPruned": 3,
+      "peak": 1,
+      "staticGraph": true
+    },
+    {
+      "budget": 400,
+      "status": "optimal",
+      "arrival": 330,
+      "distance": 400,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-cc-lift:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "expanded": 5,
+      "generated": 6,
+      "dominated": 1,
+      "boundPruned": 3,
+      "peak": 2,
+      "staticGraph": true
+    },
+    {
+      "budget": 2500,
+      "status": "optimal",
+      "arrival": 330,
+      "distance": 400,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-cc-lift:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "expanded": 7,
+      "generated": 10,
+      "dominated": 4,
+      "boundPruned": 0,
+      "peak": 5,
+      "staticGraph": true
+    }
+  ]
+}
