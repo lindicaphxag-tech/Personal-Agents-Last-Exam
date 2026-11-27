@@ -1,0 +1,436 @@
+{
+  "checks": [
+    "zero time cycles",
+    "work cap reports incomplete",
+    "storage cap reports incomplete",
+    "source equals target",
+    "no implicit waiting",
+    "closing boundary",
+    "2000 random cases with independent oracle",
+    "layered stress exact",
+    "pinned walking fixture"
+  ],
+  "random": {
+    "cases": 2000,
+    "feasible": 441,
+    "dynamic": 991,
+    "zero": 616,
+    "newWork": 8113,
+    "oldExpanded": 1294,
+    "intervals": 6061
+  },
+  "stress": [
+    {
+      "layers": 8,
+      "interval": {
+        "status": "optimal",
+        "arrival": 129,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "lo2",
+          "hi3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "lo7",
+          "gate"
+        ],
+        "states": 10,
+        "updates": 18,
+        "transforms": 17,
+        "work": 34,
+        "peakIntervals": 10,
+        "witnessStates": 10,
+        "medianMs": 0,
+        "timesMs": [
+          0,
+          0,
+          0
+        ]
+      },
+      "event": {
+        "status": "optimal",
+        "arrival": 129,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "lo2",
+          "hi3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "lo7",
+          "gate"
+        ],
+        "method": "event",
+        "partitionCuts": 1018,
+        "expanded": 15,
+        "generated": 17,
+        "dominated": 10,
+        "pruned": 0,
+        "peak": 3,
+        "medianMs": 1,
+        "timesMs": [
+          0,
+          1,
+          2
+        ]
+      },
+      "time": {
+        "status": "optimal",
+        "arrival": 129,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "lo2",
+          "hi3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "lo7",
+          "gate"
+        ],
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 373,
+        "generated": 503,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 131,
+        "medianMs": 2,
+        "timesMs": [
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "layers": 12,
+      "interval": {
+        "status": "optimal",
+        "arrival": 2049,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "hi2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "lo11",
+          "gate"
+        ],
+        "states": 14,
+        "updates": 26,
+        "transforms": 25,
+        "work": 50,
+        "peakIntervals": 14,
+        "witnessStates": 14,
+        "medianMs": 0,
+        "timesMs": [
+          0,
+          0,
+          1
+        ]
+      },
+      "event": {
+        "status": "optimal",
+        "arrival": 2049,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "hi2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "lo11",
+          "gate"
+        ],
+        "method": "event",
+        "partitionCuts": 15412,
+        "expanded": 24,
+        "generated": 27,
+        "dominated": 19,
+        "pruned": 0,
+        "peak": 4,
+        "medianMs": 16,
+        "timesMs": [
+          12,
+          16,
+          17
+        ]
+      },
+      "time": {
+        "status": "optimal",
+        "arrival": 2049,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "lo1",
+          "hi2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "lo11",
+          "gate"
+        ],
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 6125,
+        "generated": 8175,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 2051,
+        "medianMs": 29,
+        "timesMs": [
+          28,
+          29,
+          31
+        ]
+      }
+    },
+    {
+      "layers": 14,
+      "interval": {
+        "status": "optimal",
+        "arrival": 8193,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "hi1",
+          "lo2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "hi11",
+          "hi12",
+          "lo13",
+          "gate"
+        ],
+        "states": 16,
+        "updates": 30,
+        "transforms": 29,
+        "work": 58,
+        "peakIntervals": 16,
+        "witnessStates": 16,
+        "medianMs": 0,
+        "timesMs": [
+          0,
+          0,
+          1
+        ]
+      },
+      "event": {
+        "status": "optimal",
+        "arrival": 8193,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "hi1",
+          "lo2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "hi11",
+          "hi12",
+          "lo13",
+          "gate"
+        ],
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 24553,
+        "generated": 32747,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 8195,
+        "medianMs": 147,
+        "timesMs": [
+          142,
+          147,
+          180
+        ]
+      },
+      "time": {
+        "status": "optimal",
+        "arrival": 8193,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "hi1",
+          "lo2",
+          "lo3",
+          "hi4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "hi11",
+          "hi12",
+          "lo13",
+          "gate"
+        ],
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 24553,
+        "generated": 32747,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 8195,
+        "medianMs": 139,
+        "timesMs": [
+          126,
+          139,
+          144
+        ]
+      }
+    },
+    {
+      "layers": 18,
+      "interval": {
+        "status": "optimal",
+        "arrival": 131073,
+        "distance": 0,
+        "path": [
+          "lo0",
+          "hi1",
+          "hi2",
+          "hi3",
+          "lo4",
+          "hi5",
+          "hi6",
+          "hi7",
+          "hi8",
+          "hi9",
+          "hi10",
+          "hi11",
+          "hi12",
+          "hi13",
+          "hi14",
+          "hi15",
+          "hi16",
+          "lo17",
+          "gate"
+        ],
+        "states": 20,
+        "updates": 38,
+        "transforms": 37,
+        "work": 74,
+        "peakIntervals": 20,
+        "witnessStates": 20,
+        "medianMs": 0,
+        "timesMs": [
+          0,
+          0,
+          1
+        ]
+      },
+      "event": {
+        "status": "incomplete",
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 58401,
+        "generated": 100000,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 41599,
+        "medianMs": 431,
+        "timesMs": [
+          382,
+          431,
+          451
+        ]
+      },
+      "time": {
+        "status": "incomplete",
+        "method": "exact-time",
+        "partitionCuts": 0,
+        "expanded": 58401,
+        "generated": 100000,
+        "dominated": 0,
+        "pruned": 0,
+        "peak": 41599,
+        "medianMs": 360,
+        "timesMs": [
+          358,
+          360,
+          430
+        ]
+      }
+    }
+  ],
+  "fixture": [
+    {
+      "s": "pl-jules",
+      "t": "pl-recipient-b",
+      "b": 2500,
+      "status": "optimal",
+      "seconds": 330,
+      "distance": 310,
+      "work": 29689,
+      "oldExpanded": 8
+    },
+    {
+      "s": "pl-depot",
+      "t": "pl-jules",
+      "b": 150,
+      "status": "optimal",
+      "seconds": 120,
+      "distance": 150,
+      "work": 24,
+      "oldExpanded": 3
+    },
+    {
+      "s": "pl-jules",
+      "t": "pl-recipient-b",
+      "b": 300,
+      "status": "infeasible",
+      "seconds": null,
+      "distance": null,
+      "work": 18,
+      "oldExpanded": 0
+    },
+    {
+      "s": "pl-rowan",
+      "t": "pl-recipient-c",
+      "b": 2500,
+      "status": "optimal",
+      "seconds": 240,
+      "distance": 300,
+      "work": 22353,
+      "oldExpanded": 5
+    }
+  ]
+}
