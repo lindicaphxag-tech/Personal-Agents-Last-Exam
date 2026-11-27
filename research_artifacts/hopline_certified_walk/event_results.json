@@ -1,0 +1,178 @@
+{
+  "checks": [
+    "late path required and zero self-cycle terminates",
+    "partition fallback",
+    "fallback exact",
+    "state cap is incomplete",
+    "zero-cost zero-time cycle",
+    "half-open facility endpoint",
+    "backward propagated event",
+    "1600 exact state-space comparisons",
+    "stress reduces expansions"
+  ],
+  "random": {
+    "cases": 1600,
+    "feasible": 386,
+    "dynamic": 762,
+    "fallback": 762,
+    "oldLabels": 1091,
+    "newLabels": 1090,
+    "better": 1,
+    "worse": 0
+  },
+  "stress": {
+    "old": {
+      "status": "optimal",
+      "arrival": 2049,
+      "distance": 0,
+      "path": [
+        "lo0",
+        "lo1",
+        "hi2",
+        "lo3",
+        "hi4",
+        "hi5",
+        "hi6",
+        "hi7",
+        "hi8",
+        "hi9",
+        "hi10",
+        "lo11",
+        "gate"
+      ],
+      "method": "exact-time",
+      "partitionCuts": 0,
+      "expanded": 6125,
+      "generated": 8175,
+      "dominated": 0,
+      "pruned": 0,
+      "peak": 2051
+    },
+    "nw": {
+      "status": "optimal",
+      "arrival": 2049,
+      "distance": 0,
+      "path": [
+        "lo0",
+        "lo1",
+        "hi2",
+        "lo3",
+        "hi4",
+        "hi5",
+        "hi6",
+        "hi7",
+        "hi8",
+        "hi9",
+        "hi10",
+        "lo11",
+        "gate"
+      ],
+      "method": "event",
+      "partitionCuts": 14797,
+      "expanded": 24,
+      "generated": 27,
+      "dominated": 19,
+      "pruned": 0,
+      "peak": 4
+    }
+  },
+  "fixture": {
+    "original": {
+      "status": "optimal",
+      "arrival": 1795242930000,
+      "distance": 310,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-cc-lift:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "method": "event",
+      "partitionCuts": 1159,
+      "expanded": 8,
+      "generated": 16,
+      "dominated": 1,
+      "pruned": 0,
+      "peak": 9,
+      "seconds": 330
+    },
+    "zero": {
+      "status": "optimal",
+      "arrival": 1795242720000,
+      "distance": 150,
+      "path": [
+        "access:pl-depot:hill-cc",
+        "access:pl-jules:hill-cc"
+      ],
+      "method": "event",
+      "partitionCuts": 1162,
+      "expanded": 3,
+      "generated": 3,
+      "dominated": 0,
+      "pruned": 3,
+      "peak": 1,
+      "seconds": 120
+    },
+    "later": {
+      "status": "optimal",
+      "arrival": 1795243470000,
+      "distance": 1020,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-hill-cc-ep:f",
+        "pw-hill-ep-rr:f",
+        "pw-rr-ramp:f",
+        "pw-canal-rr-ep:f",
+        "pw-canal-ep-cc:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "method": "event",
+      "partitionCuts": 1159,
+      "expanded": 23,
+      "generated": 32,
+      "dominated": 10,
+      "pruned": 0,
+      "peak": 10,
+      "seconds": 870
+    },
+    "noEstimate": {
+      "status": "optimal",
+      "arrival": 1795243470000,
+      "distance": 1020,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-hill-cc-ep:f",
+        "pw-hill-ep-rr:f",
+        "pw-rr-ramp:f",
+        "pw-canal-rr-ep:f",
+        "pw-canal-ep-cc:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "method": "event",
+      "partitionCuts": 1159,
+      "expanded": 23,
+      "generated": 32,
+      "dominated": 10,
+      "pruned": 0,
+      "peak": 10,
+      "seconds": 870
+    },
+    "yesEstimate": {
+      "status": "optimal",
+      "arrival": 1795242930000,
+      "distance": 310,
+      "path": [
+        "access:pl-jules:hill-cc",
+        "pw-cc-lift:f",
+        "access:pl-recipient-b:canal-cc"
+      ],
+      "method": "event",
+      "partitionCuts": 1159,
+      "expanded": 8,
+      "generated": 16,
+      "dominated": 1,
+      "pruned": 0,
+      "peak": 9,
+      "seconds": 330
+    }
+  }
+}
